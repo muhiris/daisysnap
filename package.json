@@ -1,11 +1,14 @@
 {
-  "name": "tw-init",
+  "name": "daisysnap",
   "version": "1.0.0",
   "description": "Initialize React projects with Tailwind CSS and Daisy UI using Vite",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "daisysnap": "./index.js"
   },
   "repository": {
     "type": "git",
@@ -27,13 +30,18 @@
     "tailwindcss",
     "daisy ui"
   ],
-  "author": "\"Muhammad Haris\",",
+  "author": {
+    "name": "Muhammad Haris",
+    "email": "muhammadharis786@protonmail.com",
+    "url": "https://github.com/muhiris"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/muhiris/twinit/issues"
   },
   "homepage": "https://github.com/muhiris/twinit#readme",
   "dependencies": {
+    "daisysnap": "^1.0.0",
     "execa": "^8.0.1",
     "inquirer": "^9.2.12"
   }

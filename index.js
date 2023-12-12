@@ -1,34 +1,36 @@
-#! /usr/bin/env node;
+#! /usr/bin/env node
 
 import inquirer from "inquirer";
 import { execa } from "execa";
 import * as fs from "fs/promises";
+import ora from "ora";
 
-async function initReactProject() {
-  const answers = await inquirer.prompt([
-    {
-      type: "input",
-      name: "projectName",
-      message: "Enter your project name:",
-      validate: function (input) {
-        return /^[a-zA-Z0-9-]+$/.test(input)
-          ? true
-          : "Project name may only include letters, numbers, and hyphens.";
-      },
-    },
-    {
-      type: "confirm",
-      name: "useDaisyui",
-      message: "Do you want to use Daisy UI?",
-      default: false,
-    },
-  ]);
-
-  const { projectName, useDaisyui } = answers;
-//   const projectPath = `./${projectName}`;
-const projectPath = `${process.cwd()}/${projectName}`; // Use absolute path
+const initProject = async () => {
 
   try {
+    const answers = await inquirer.prompt([
+      {
+        type: "input",
+        name: "projectName",
+        message: "Enter your project name:",
+        validate: function (input) {
+          return /^[a-zA-Z0-9-]+$/.test(input)
+            ? true
+            : "Project name may only include letters, numbers, and hyphens.";
+        },
+      },
+      {
+        type: "confirm",
+        name: "useDaisyui",
+        message: "Do you want to use Daisy UI?",
+        default: false,
+      },
+    ]);
+
+    const { projectName, useDaisyui } = answers;
+    const projectPath = `${process.cwd()}/${projectName}`;
+
+    const spinner = ora("Initializing project...").start();
     // Create Vite React project
     await execa("npm", [
       "create",
@@ -38,6 +40,7 @@ const projectPath = `${process.cwd()}/${projectName}`; // Use absolute path
       "--template",
       "react",
     ]);
+
     // Change directory to the newly created project
     process.chdir(projectPath);
 
@@ -81,7 +84,6 @@ const projectPath = `${process.cwd()}/${projectName}`; // Use absolute path
     `;
     await fs.writeFile("src/index.css", tailwindCSS.trim());
 
-    console.log("Tailwind CSS setup completed!");
     // Update src/App.jsx based on useDaisyui
     const appContent = useDaisyui
       ? `
@@ -122,12 +124,14 @@ export default App;
 
     // Run the development server
     // await execa("npm", ["run", "dev"]);
-    console.log(`Project initialized successfully!\n\nTo start the development server, navigate to the project folder using the following commands:\n\n  cd ${projectName}\n  npm run dev`);
-
-
+    spinner.succeed("Project initialized successfully!");
+    console.log(
+      `\nTo start the development server, navigate to the project folder using the following commands:\n\n  cd ${projectName}\n  npm run dev`
+    );
   } catch (error) {
-    console.error("Error initializing project:", error.message);
+    spinner.fail("Error initializing project:");
+    console.error(error.message);
   }
-}
+};
 
-initReactProject();
+initProject();
