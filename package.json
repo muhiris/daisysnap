@@ -1,6 +1,6 @@
 {
   "name": "daisysnap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Initialize React projects with Tailwind CSS and Daisy UI using Vite",
   "main": "index.js",
   "type": "module",
