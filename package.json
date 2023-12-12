@@ -1,0 +1,35 @@
+{
+  "name": "twinit",
+  "version": "1.0.0",
+  "description": "Initialize React projects with Tailwind CSS and Daisy UI using Vite",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/muhiris/twinit.git"
+  },
+  "keywords": [
+    "react",
+    "vite",
+    "tailwind",
+    "daisyui",
+    "initializer",
+    "boilerplate",
+    "starter",
+    "template",
+    "project setup",
+    "frontend",
+    "web development",
+    "react vite",
+    "tailwindcss",
+    "daisy ui"
+  ],
+  "author": "\"Muhammad Haris\",",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muhiris/twinit/issues"
+  },
+  "homepage": "https://github.com/muhiris/twinit#readme"
+}
