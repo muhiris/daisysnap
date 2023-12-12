@@ -1,3 +1,5 @@
+#! /usr/bin/env node;
+
 import inquirer from "inquirer";
 import { execa } from "execa";
 import * as fs from "fs/promises";
