@@ -1,6 +1,8 @@
 # DaisySnap NPM Package
 
 ![npm](https://img.shields.io/npm/v/daisysnap) ![npm](https://img.shields.io/npm/dt/daisysnap) ![NPM](https://img.shields.io/npm/l/daisysnap)
+
+
 DaisySnap is a powerful npm package designed to make initialization of new React projects effortlessly. 
 
 With DaisySnap, you can quickly set up a React project using Vite, integrate Tailwind CSS seamlessly, and optionally include the DaisyUI plugin for enhanced functionality.
