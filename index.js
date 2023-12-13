@@ -14,9 +14,8 @@ const initProject = async () => {
         name: "projectName",
         message: "Enter your project name:",
         validate: function (input) {
-          return /^[a-zA-Z0-9-]+$/.test(input)
-            ? true
-            : "Project name may only include letters, numbers, and hyphens.";
+          const isValid = /^[^\\/:\*\?"<>\|]+$/i.test(input);
+          return isValid ? true : "Invalid characters in project name. Please avoid \\ / : * ? \" < > |";
         },
       },
       {
